@@ -52,7 +52,7 @@ class Nabaztag:
 	
 	def sendTTS(self, text):
 		"""Send text for text to speech."""
-		rsp.sendCommands( [ ("tts", text), ])
+		rsp = self.sendCommands( [ ("tts", text), ])
 		#TODO: check for *** response
 		return rsp
 	
@@ -71,7 +71,7 @@ class Nabaztag:
 	def setEars(self, left, right):
 		"""Sets the position of both ears simultaneously."""
 		#we don't simply call setEarRight and setEarLeft because we want this done as a single action
-		rsp = self.sendCommands( [ ("posleft", left), "posright", right ] )
+		rsp = self.sendCommands( [ ("posleft", left), ("posright", right), ] )
 		return rsp
 	
 	def setSleep(self, status):
